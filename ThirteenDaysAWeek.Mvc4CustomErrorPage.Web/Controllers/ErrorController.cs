@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ThirteenDaysAWeek.Mvc4CustomErrorPage.Web.Models;
 
 namespace ThirteenDaysAWeek.Mvc4CustomErrorPage.Web.Controllers
 {
@@ -13,9 +14,11 @@ namespace ThirteenDaysAWeek.Mvc4CustomErrorPage.Web.Controllers
 
         public ActionResult Index(int statusCode, Exception exception)
         {
+            ErrorModel model = new ErrorModel {HttpStatusCode = statusCode, Exception = exception};
+
             Response.StatusCode = statusCode;
 
-            return View();
+            return View(model);
         }
     }
 }
