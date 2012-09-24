@@ -13,6 +13,8 @@ namespace ThirteenDaysAWeek.Mvc4CustomErrorPage.Web.Controllers
 
         public ActionResult Index(int statusCode, Exception exception)
         {
+            Response.StatusCode = statusCode;
+
             return View();
         }
     }
